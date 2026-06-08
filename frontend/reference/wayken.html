@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wayken Holding Pvt Ltd — Long-Term Capital. Enduring Value.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0a0a0a;
+    --charcoal: #141414;
+    --dark: #1c1c1c;
+    --mid: #2a2a2a;
+    --border: #2e2e2e;
+    --muted: #5a5a5a;
+    --silver: #9a9a9a;
+    --light: #d4d0c8;
+    --cream: #f0ece3;
+    --white: #fafaf8;
+    --gold: #b8996a;
+    --gold-light: #d4b87a;
+    --gold-pale: rgba(184,153,106,0.12);
+    --gold-line: rgba(184,153,106,0.3);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+    --nav-h: 76px;
+    --transition: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--black);
+    color: var(--light);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--gold); color: var(--black); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    transition: background 0.5s var(--transition), border-bottom 0.5s;
+  }
+
+  nav.scrolled {
+    background: rgba(10,10,10,0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-decoration: none;
+  }
+
+  .nav-logo-name {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  .nav-logo-sub {
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--silver);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s var(--transition);
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--light);
+    transition: all 0.3s;
+  }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--light);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.3s;
+  }
+
+  .mobile-nav a:hover { color: var(--gold); }
+
+  .mobile-close {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.6rem;
+    cursor: pointer;
+    font-family: var(--serif);
+  }
+
+  /* ─── SECTIONS ─── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 100px;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(184,153,106,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184,153,106,0.04) 0%, transparent 60%);
+  }
+
+  .hero-line-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 1s var(--transition) 0.3s forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    max-width: 800px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.2s var(--transition) 0.5s forwards;
+  }
+
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-descriptor {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--silver);
+    letter-spacing: 0.06em;
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 1s var(--transition) 0.7s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 1s var(--transition) 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    color: var(--silver);
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeIn 1.2s var(--transition) 1.2s forwards;
+  }
+
+  .hero-stat { text-align: right; }
+
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    opacity: 0.6;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-tag {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .section-lead {
+    font-size: 0.9rem;
+    color: var(--silver);
+    line-height: 1.85;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    padding: 140px 0;
+    background: var(--charcoal);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-box {
+    width: 100%;
+    padding-bottom: 120%;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-box-inner {
+    position: absolute;
+    inset: 40px;
+    border: 1px solid var(--gold-line);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 36px;
+  }
+
+  .about-monogram {
+    font-family: var(--serif);
+    font-size: 6rem;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+    position: absolute;
+    top: 30px;
+    left: 36px;
+  }
+
+  .about-founded {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .about-tagline {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .about-text p {
+    font-size: 0.88rem;
+    color: var(--silver);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .about-text p:first-of-type {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--light);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 48px;
+    border: 1px solid var(--border);
+  }
+
+  .pillar {
+    background: var(--charcoal);
+    padding: 28px 24px;
+    transition: background 0.3s;
+  }
+
+  .pillar:hover { background: var(--dark); }
+
+  .pillar-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .pillar-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--light);
+  }
+
+  /* ─── PHILOSOPHY ─── */
+  #philosophy {
+    padding: 140px 0;
+    background: var(--black);
+  }
+
+  .philosophy-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .philosophy-sticky {
+    position: sticky;
+    top: 120px;
+  }
+
+  .philosophy-principles {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .principle {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: start;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+    cursor: default;
+  }
+
+  .principle:first-child { border-top: 1px solid var(--border); }
+  .principle:hover { opacity: 1; }
+
+  .principle-num {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--gold);
+    padding-top: 4px;
+  }
+
+  .principle-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .principle-body {
+    font-size: 0.82rem;
+    color: var(--silver);
+    line-height: 1.85;
+  }
+
+  /* ─── WIN BANNER ─── */
+  .win-banner {
+    margin-top: 80px;
+    padding: 48px;
+    border: 1px solid var(--gold-line);
+    background: var(--gold-pale);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .win-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .win-banner-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .win-banner-body {
+    font-size: 0.82rem;
+    color: var(--silver);
+    line-height: 1.85;
+  }
+
+  /* ─── SECTORS ─── */
+  #sectors {
+    padding: 140px 0;
+    background: var(--charcoal);
+  }
+
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 64px;
+  }
+
+  .sector-card {
+    background: var(--charcoal);
+    padding: 44px 36px;
+    transition: background 0.35s, transform 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sector-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.4s var(--transition);
+  }
+
+  .sector-card:hover { background: var(--dark); }
+  .sector-card:hover::after { width: 100%; }
+
+  .sector-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: border-color 0.3s;
+  }
+
+  .sector-card:hover .sector-icon { border-color: var(--gold-line); }
+
+  .sector-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sector-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .sector-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ─── RESPONSIBLE INVESTING ─── */
+  #responsible {
+    padding: 140px 0;
+    background: var(--dark);
+  }
+
+  .responsible-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 64px;
+  }
+
+  .responsible-text p {
+    font-size: 0.86rem;
+    color: var(--silver);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .esg-list {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .esg-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .esg-item:first-child { border-top: 1px solid var(--border); }
+
+  .esg-letter {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.6;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .esg-title { font-size: 0.78rem; font-weight: 500; color: var(--light); letter-spacing: 0.08em; margin-bottom: 6px; }
+  .esg-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.75; }
+
+  .commitment-block {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    padding: 48px;
+  }
+
+  .commitment-quote {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+
+  .commitment-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .commitment-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 0.78rem;
+    color: var(--silver);
+    line-height: 1.7;
+  }
+
+  .commitment-item::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-family: var(--serif);
+  }
+
+  /* ─── LEADERSHIP ─── */
+  #leadership {
+    padding: 140px 0;
+    background: var(--black);
+  }
+
+  .leadership-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .team-card {
+    position: relative;
+    cursor: default;
+  }
+
+  .team-card-visual {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .team-card-visual::before {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid var(--gold-line);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .team-card:hover .team-card-visual::before { opacity: 1; }
+
+  .team-initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--border);
+    letter-spacing: 0.05em;
+  }
+
+  .team-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .team-bio { font-size: 0.76rem; color: var(--muted); line-height: 1.75; }
+
+  .governance-banner {
+    margin-top: 80px;
+    padding: 56px 48px;
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .governance-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .governance-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.25;
+  }
+
+  .governance-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .governance-item { font-size: 0.78rem; color: var(--silver); line-height: 1.7; }
+  .governance-item strong { display: block; color: var(--light); font-weight: 400; margin-bottom: 4px; }
+
+  /* ─── PARTNERS ─── */
+  #partners {
+    padding: 140px 0;
+    background: var(--charcoal);
+  }
+
+  .partners-content {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .partner-types {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .partner-type {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .partner-type:first-child { border-top: 1px solid var(--border); }
+
+  .partner-type-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .partner-type-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.8; }
+
+  .partner-cta-block {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 48px;
+    position: sticky;
+    top: 120px;
+  }
+
+  .partner-cta-block p { font-size: 0.84rem; color: var(--silver); line-height: 1.85; margin-bottom: 16px; }
+
+  /* ─── INSIGHTS ─── */
+  #insights {
+    padding: 140px 0;
+    background: var(--black);
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 64px;
+  }
+
+  .insight-card {
+    background: var(--black);
+    padding: 44px 36px;
+    transition: background 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .insight-card:hover { background: var(--charcoal); }
+
+  .insight-type {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .insight-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 16px;
+  }
+
+  .insight-excerpt { font-size: 0.78rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+
+  .insight-arrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .insight-arrow::after {
+    content: '→';
+    transition: transform 0.3s;
+  }
+
+  .insight-card:hover .insight-arrow::after { transform: translateX(6px); }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    padding: 140px 0;
+    background: var(--dark);
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .contact-info { padding-top: 20px; }
+  .contact-info p { font-size: 0.84rem; color: var(--silver); line-height: 1.9; margin-bottom: 40px; }
+
+  .contact-details { display: flex; flex-direction: column; gap: 28px; }
+
+  .contact-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-detail-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-detail-value { font-size: 0.86rem; color: var(--light); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 24px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    color: var(--light);
+    font-family: var(--sans);
+    font-size: 0.84rem;
+    font-weight: 300;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a5a5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .form-textarea { resize: none; height: 120px; }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 40px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 64px 0 40px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .footer-brand-name {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand-sub {
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-brand-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.8; }
+
+  .footer-col-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ─── KEYFRAMES ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ─── HORIZONTAL RULE ─── */
+  .h-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 32px 0;
+  }
+
+  /* ─── AMBITION STRIP ─── */
+  .ambition-strip {
+    background: var(--gold);
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+  .ambition-text {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--black);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+    .nav-links { gap: 24px; }
+    .section-inner { padding: 0 32px; }
+    .hero-content { padding: 0 32px; }
+    .hero-stats { right: 32px; }
+    .about-grid,
+    .leadership-intro,
+    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .philosophy-layout { grid-template-columns: 1fr; gap: 48px; }
+    .philosophy-sticky { position: static; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .sectors-grid { grid-template-columns: 1fr 1fr; }
+    .insights-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .governance-banner { grid-template-columns: 1fr; gap: 32px; }
+    .partners-content { grid-template-columns: 1fr; gap: 48px; }
+    .responsible-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .section-inner { padding: 0 24px; }
+    .hero-content { padding: 0 24px; }
+    #home { padding-bottom: 80px; }
+    .hero-stats { display: none; }
+    .hero-cta { flex-direction: column; align-items: flex-start; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .sectors-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .insights-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .governance-items { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 80px 0; }
+    #about, #philosophy, #sectors, #responsible, #leadership, #partners, #insights, #contact {
+      padding: 80px 0;
+    }
+    .ambition-strip { padding: 20px 24px; }
+    .footer-inner { padding: 0 24px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">
+    <span class="nav-logo-name">Wayken</span>
+    <span class="nav-logo-sub">Holding Pvt Ltd</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#responsible">Responsibility</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#philosophy" class="mobile-link">Philosophy</a>
+  <a href="#sectors" class="mobile-link">Sectors</a>
+  <a href="#responsible" class="mobile-link">Responsibility</a>
+  <a href="#leadership" class="mobile-link">Leadership</a>
+  <a href="#partners" class="mobile-link">Partners</a>
+  <a href="#insights" class="mobile-link">Insights</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ═══ HOME ═══ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-line-v"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Investment Management</div>
+    <h1 class="hero-h1">Long-Term Capital.<br><em>Enduring Value.</em></h1>
+    <p class="hero-descriptor">Wayken Holding Pvt Ltd brings together investors, entrepreneurs, and experienced professionals to build strong businesses — not over quarters, but over generations.</p>
+    <div class="hero-cta">
+      <a href="#about" class="btn-primary">Discover Wayken</a>
+      <a href="#philosophy" class="btn-ghost">Our Philosophy</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">1,000</span>
+      <span class="hero-stat-label">Companies — 100-Year Vision</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">Win³</span>
+      <span class="hero-stat-label">Investor · Company · Society</span>
+    </div>
+  </div>
+</section>
+
+<!-- AMBITION STRIP -->
+<div class="ambition-strip">
+  <span class="ambition-text">Our 100-year ambition: support and develop 1,000 companies that create enduring value for investors, businesses, and society.</span>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-box">
+          <div class="about-box-inner">
+            <div class="about-monogram">W</div>
+            <div class="about-founded">Est. — Kochi, India</div>
+            <div class="about-tagline">"Capital deployed responsibly. Businesses built to endure."</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag reveal">About Wayken</div>
+        <h2 class="section-title reveal reveal-delay-1">A Platform for <em>Responsible</em> Capital</h2>
+        <p class="reveal reveal-delay-2">Wayken Holding Pvt Ltd is a long-term investment management company that brings together investors, entrepreneurs, and experienced professionals to build strong businesses over time.</p>
+        <p class="reveal reveal-delay-3">The company pools capital from investors and allocates it into carefully selected companies after proper research, due diligence, and strategic evaluation. The goal is not just financial returns, but the creation of sustainable businesses that can grow for decades.</p>
+        <p class="reveal reveal-delay-4">Founded by alumni of an Executive MBA program, Wayken was built to apply rigorous business knowledge in real-world investments — and to act as a platform for long-term collaboration among professionals and partners.</p>
+
+        <div class="about-pillars reveal">
+          <div class="pillar">
+            <div class="pillar-num">01</div>
+            <div class="pillar-label">Transparency</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">02</div>
+            <div class="pillar-label">Discipline</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">03</div>
+            <div class="pillar-label">Ethical Responsibility</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">04</div>
+            <div class="pillar-label">Long-Term Vision</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHILOSOPHY ═══ -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="philosophy-layout">
+      <div class="philosophy-sticky">
+        <div class="section-tag reveal">Investment Philosophy</div>
+        <h2 class="section-title reveal reveal-delay-1">Built on <em>Discipline</em></h2>
+        <p class="section-lead reveal reveal-delay-2">Every decision at Wayken is guided by a set of core principles that have been deliberate from inception. We do not deviate from these in search of short-term gain.</p>
+        <div class="h-rule reveal reveal-delay-3"></div>
+        <p class="section-lead reveal reveal-delay-3" style="font-size:0.8rem; color: var(--muted);">Wayken is not built around speculation or short-term gains. Instead, it focuses on businesses that create real value — and holds them through cycles, challenges, and change.</p>
+      </div>
+      <div class="philosophy-principles">
+        <div class="principle reveal">
+          <span class="principle-num">01</span>
+          <div>
+            <div class="principle-title">Long-Term Orientation</div>
+            <div class="principle-body">We invest with decade-long horizons. Quarterly noise is irrelevant to us. We seek businesses that compound value through genuine competitive advantage, not cyclical momentum.</div>
+          </div>
+        </div>
+        <div class="principle reveal reveal-delay-1">
+          <span class="principle-num">02</span>
+          <div>
+            <div class="principle-title">Rigorous Due Diligence</div>
+            <div class="principle-body">Capital allocation decisions are preceded by thorough research and strategic evaluation. We understand what we own, why we own it, and what would change our thesis.</div>
+          </div>
+        </div>
+        <div class="principle reveal reveal-delay-2">
+          <span class="principle-num">03</span>
+          <div>
+            <div class="principle-title">Responsible Capital</div>
+            <div class="principle-body">Every investment decision is guided by discipline, transparency, and ethical responsibility toward investors and portfolio companies. Capital is not just a number — it is trust.</div>
+          </div>
+        </div>
+        <div class="principle reveal reveal-delay-3">
+          <span class="principle-num">04</span>
+          <div>
+            <div class="principle-title">Collaborative Growth</div>
+            <div class="principle-body">Wayken acts as a platform for long-term collaboration. Professionals and partners grow together, creating structured investment opportunities and shared knowledge.</div>
+          </div>
+        </div>
+        <div class="principle reveal reveal-delay-4">
+          <span class="principle-num">05</span>
+          <div>
+            <div class="principle-title">Real Value Creation</div>
+            <div class="principle-body">We focus on sectors that create tangible impact — healthcare, education, technology-enabled services, consumer businesses, and alternative assets with structural tailwinds.</div>
+          </div>
+        </div>
+
+        <div class="win-banner reveal">
+          <div class="win-banner-title">The Win–Win–Win Philosophy</div>
+          <div class="win-banner-body">Investors receive transparent returns. Portfolio companies gain the capital and strategic support needed to grow. And the organization itself evolves through shared knowledge and long-term wealth creation. Every stakeholder wins, or we reconsider the allocation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTORS ═══ -->
+<section id="sectors">
+  <div class="section-inner">
+    <div class="section-tag reveal">Sectors</div>
+    <h2 class="section-title reveal reveal-delay-1">Where We <em>Invest</em></h2>
+    <p class="section-lead reveal reveal-delay-2">We focus on sectors with structural long-term demand, where patient capital and operational expertise create differentiated outcomes.</p>
+    <div class="sectors-grid">
+      <div class="sector-card reveal">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="sector-name">Healthcare</div>
+        <div class="sector-desc">Investing in businesses that improve patient outcomes, reduce systemic costs, and expand access — from diagnostics to care delivery.</div>
+      </div>
+      <div class="sector-card reveal reveal-delay-1">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="sector-name">Education</div>
+        <div class="sector-desc">Supporting institutions and platforms that build human capital — the most durable asset class of all. From early learning to professional development.</div>
+      </div>
+      <div class="sector-card reveal reveal-delay-2">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="sector-name">Technology-Enabled Services</div>
+        <div class="sector-desc">Businesses where technology amplifies service delivery, improving unit economics and scalability across traditional sectors.</div>
+      </div>
+      <div class="sector-card reveal reveal-delay-1">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <div class="sector-name">Consumer Businesses</div>
+        <div class="sector-desc">Brands and platforms with loyal customer bases, strong unit economics, and the capacity to build generational relevance.</div>
+      </div>
+      <div class="sector-card reveal reveal-delay-2">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div class="sector-name">Alternative Assets</div>
+        <div class="sector-desc">Carefully selected positions in asset classes with structural tailwinds — providing portfolio balance and uncorrelated return streams.</div>
+      </div>
+      <div class="sector-card reveal reveal-delay-3">
+        <div class="sector-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div class="sector-name">Beyond Boundaries</div>
+        <div class="sector-desc">With a 100-year mandate, we remain open to sectors not yet defined. Long-term thinking demands the intellectual humility to evolve.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESPONSIBLE ═══ -->
+<section id="responsible">
+  <div class="section-inner">
+    <div class="section-tag reveal">Responsible Investing</div>
+    <h2 class="section-title reveal reveal-delay-1">Capital With <em>Conscience</em></h2>
+    <div class="responsible-grid">
+      <div>
+        <div class="responsible-text">
+          <p class="reveal">At Wayken, responsible investing is not a regulatory box to check — it is foundational to the kind of firm we intend to become and the kind of capital we seek to represent.</p>
+          <p class="reveal reveal-delay-1">We believe that businesses built with ethical foundations, genuine accountability, and respect for all stakeholders are structurally more durable. Our investment process integrates these considerations at every stage.</p>
+        </div>
+        <ul class="esg-list">
+          <li class="esg-item reveal">
+            <span class="esg-letter">E</span>
+            <div class="esg-content">
+              <div class="esg-title">Environmental Consideration</div>
+              <div class="esg-desc">We evaluate how portfolio companies manage environmental risk and opportunity, preferring businesses that operate sustainably within planetary boundaries.</div>
+            </div>
+          </li>
+          <li class="esg-item reveal reveal-delay-1">
+            <span class="esg-letter">S</span>
+            <div class="esg-content">
+              <div class="esg-title">Social Accountability</div>
+              <div class="esg-desc">We support businesses that treat employees, communities, and customers as essential stakeholders — not afterthoughts.</div>
+            </div>
+          </li>
+          <li class="esg-item reveal reveal-delay-2">
+            <span class="esg-letter">G</span>
+            <div class="esg-content">
+              <div class="esg-title">Governance Standards</div>
+              <div class="esg-desc">Strong governance is non-negotiable. We require transparency, accountability, and ethical conduct from every company we are associated with.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="commitment-block reveal">
+          <div class="commitment-quote">"Capital should be deployed responsibly. Every decision is guided by discipline, transparency, and ethical responsibility."</div>
+          <div class="commitment-items">
+            <div class="commitment-item">Independent governance structures that protect all stakeholders</div>
+            <div class="commitment-item">Transparent reporting on investment performance and portfolio developments</div>
+            <div class="commitment-item">Excluding businesses with harmful externalities regardless of return potential</div>
+            <div class="commitment-item">Active engagement with portfolio companies on governance improvement</div>
+            <div class="commitment-item">Long-term orientation that aligns our incentives with investor interests</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEADERSHIP ═══ -->
+<section id="leadership">
+  <div class="section-inner">
+    <div class="leadership-intro">
+      <div>
+        <div class="section-tag reveal">Leadership & Governance</div>
+        <h2 class="section-title reveal reveal-delay-1">Grounded in <em>Experience</em></h2>
+      </div>
+      <div>
+        <p class="section-lead reveal reveal-delay-2">Wayken was founded by alumni of an Executive MBA program who chose to apply their business knowledge in real-world investments. Our leadership combines institutional discipline with entrepreneurial conviction.</p>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-card-visual">
+          <div class="team-initials">FS</div>
+        </div>
+        <div class="team-role">Founder & Managing Director</div>
+        <div class="team-name">Founding Partner</div>
+        <div class="team-bio">Executive MBA graduate with a deep background in business strategy and investment evaluation. Leads the overall direction and capital allocation decisions of Wayken.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-card-visual">
+          <div class="team-initials">IP</div>
+        </div>
+        <div class="team-role">Chief Investment Officer</div>
+        <div class="team-name">Investment Partner</div>
+        <div class="team-bio">Brings structured investment analysis and sector expertise across healthcare and technology. Oversees the due diligence and portfolio evaluation process.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-card-visual">
+          <div class="team-initials">SP</div>
+        </div>
+        <div class="team-role">Strategy & Operations</div>
+        <div class="team-name">Operating Partner</div>
+        <div class="team-bio">Specializes in post-investment value creation, working alongside portfolio companies to build operational capabilities and governance infrastructure.</div>
+      </div>
+    </div>
+
+    <div class="governance-banner reveal">
+      <div>
+        <div class="governance-label">Governance</div>
+        <div class="governance-title">Structured for<br><em>Trust</em></div>
+      </div>
+      <div class="governance-items">
+        <div class="governance-item">
+          <strong>Investment Committee</strong>
+          All allocation decisions reviewed by an independent committee before commitment.
+        </div>
+        <div class="governance-item">
+          <strong>Investor Reporting</strong>
+          Regular, transparent reporting on portfolio performance and organizational developments.
+        </div>
+        <div class="governance-item">
+          <strong>Conflict of Interest Policy</strong>
+          Strict protocols to ensure decisions are made in the interest of investors and portfolio companies.
+        </div>
+        <div class="governance-item">
+          <strong>Ethical Charter</strong>
+          A founding document that defines the values and behaviors all Wayken representatives uphold.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARTNERS ═══ -->
+<section id="partners">
+  <div class="section-inner">
+    <div class="section-tag reveal">Partners</div>
+    <h2 class="section-title reveal reveal-delay-1">Built for <em>Collaboration</em></h2>
+    <p class="section-lead reveal reveal-delay-2">Wayken exists as a platform for long-term collaboration. We welcome investors, entrepreneurs, professionals, and strategic partners aligned with our long-term mission.</p>
+
+    <div class="partners-content">
+      <div class="partner-types">
+        <div class="partner-type reveal">
+          <div class="partner-type-name">Investors</div>
+          <div class="partner-type-desc">Individuals and institutions seeking disciplined, long-term capital deployment in high-quality businesses. We offer transparency, structured governance, and alignment of interests.</div>
+        </div>
+        <div class="partner-type reveal reveal-delay-1">
+          <div class="partner-type-name">Entrepreneurs</div>
+          <div class="partner-type-desc">Founders building businesses in sectors we understand deeply. We bring more than capital — we bring strategic support, governance expertise, and a long-term perspective that respects the builder's vision.</div>
+        </div>
+        <div class="partner-type reveal reveal-delay-2">
+          <div class="partner-type-name">Professionals & Advisors</div>
+          <div class="partner-type-desc">Experienced individuals who contribute domain expertise, networks, and judgment to Wayken's investment process and portfolio companies.</div>
+        </div>
+        <div class="partner-type reveal reveal-delay-3">
+          <div class="partner-type-name">Strategic Partners</div>
+          <div class="partner-type-desc">Organizations and institutions whose capabilities complement our portfolio and amplify value for the businesses we back.</div>
+        </div>
+      </div>
+
+      <div class="partner-cta-block reveal">
+        <div class="section-tag" style="margin-bottom:28px;">Work With Us</div>
+        <p>Whether you are an investor looking for a disciplined long-term partner, an entrepreneur seeking capital and strategic support, or a professional interested in contributing to our platform — we welcome the conversation.</p>
+        <p>We do not transact. We build relationships first, and let those relationships determine whether an investment is the right structure for both parties.</p>
+        <div class="h-rule"></div>
+        <a href="#contact" class="btn-primary" style="margin-top:8px;">Initiate a Conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INSIGHTS ═══ -->
+<section id="insights">
+  <div class="section-inner">
+    <div class="section-tag reveal">Insights</div>
+    <h2 class="section-title reveal reveal-delay-1">Thinking on <em>Markets & Capital</em></h2>
+    <p class="section-lead reveal reveal-delay-2">Our perspectives on long-term investing, governance, and the businesses we find most compelling.</p>
+
+    <div class="insights-grid">
+      <a href="#" class="insight-card reveal">
+        <div class="insight-type">Investment Thinking</div>
+        <div class="insight-title">Why Patient Capital Outperforms in Emerging Markets</div>
+        <div class="insight-excerpt">The compounding advantage of long-term orientation is more pronounced in markets with institutional inefficiency — and India presents precisely that opportunity.</div>
+        <div class="insight-arrow">Read more</div>
+      </a>
+      <a href="#" class="insight-card reveal reveal-delay-1">
+        <div class="insight-type">Governance</div>
+        <div class="insight-title">The Case for Independent Governance in Private Equity</div>
+        <div class="insight-excerpt">Most governance failures in private markets stem from the same root: the absence of independent oversight. We examine what proper structures look like.</div>
+        <div class="insight-arrow">Read more</div>
+      </a>
+      <a href="#" class="insight-card reveal reveal-delay-2">
+        <div class="insight-type">Sector View</div>
+        <div class="insight-title">Healthcare as a Structural Investment Opportunity in India</div>
+        <div class="insight-excerpt">Demographic shifts, rising incomes, and persistent supply gaps make Indian healthcare one of the most compelling multi-decade investment themes available.</div>
+        <div class="insight-arrow">Read more</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="section-tag reveal">Contact</div>
+        <h2 class="section-title reveal reveal-delay-1">Begin the <em>Conversation</em></h2>
+        <p class="reveal reveal-delay-2">We welcome enquiries from investors, entrepreneurs, and professionals who share our belief in long-term, responsible capital allocation. There is no standard form here — every relationship begins with a genuine conversation.</p>
+        <div class="contact-details reveal reveal-delay-3">
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Location</span>
+            <span class="contact-detail-value">Kochi, Kerala, India</span>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Email</span>
+            <span class="contact-detail-value">contact@waykenholdng.com</span>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Enquiries</span>
+            <span class="contact-detail-value">Investor Relations · Entrepreneurial Partnerships · Career</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="Your first name">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Organisation</label>
+          <input type="text" class="form-input" placeholder="Your company or institution">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Nature of Enquiry</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select enquiry type</option>
+            <option>Investor Relations</option>
+            <option>Entrepreneurial Partnership</option>
+            <option>Professional Advisory</option>
+            <option>Strategic Partnership</option>
+            <option>Career Opportunity</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Share a brief context on your enquiry…"></textarea>
+        </div>
+        <button class="form-submit" type="button">Submit Enquiry →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Wayken</div>
+        <div class="footer-brand-sub">Holding Pvt Ltd</div>
+        <div class="footer-brand-desc">Long-term investment management. Responsible capital allocation. Building businesses for the next 100 years.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Wayken</a></li>
+          <li><a href="#philosophy">Investment Philosophy</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#responsible">Responsible Investing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Investment</div>
+        <ul class="footer-links">
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#insights">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="#contact">Investor Relations</a></li>
+          <li><a href="#contact">Entrepreneurial Partnerships</a></li>
+          <li><a href="#contact">Career</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Wayken Holding Pvt Ltd. All rights reserved.</span>
+      <span style="color: var(--border);">Kochi, Kerala, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // SMOOTH SCROLL with offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 76;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
