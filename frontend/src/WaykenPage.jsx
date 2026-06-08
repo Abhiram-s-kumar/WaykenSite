@@ -1,6 +1,13 @@
 ﻿function WaykenPage() {
 const teamMembers = [
   {
+    initials: 'IP',
+    image: '/assets/Ceo.jpeg',
+    role: 'Chief Investment Officer',
+    name: 'Investment Partner',
+    bio: 'Brings structured investment analysis and sector expertise across healthcare and technology. Oversees the due diligence and portfolio evaluation process.'
+  },
+  {
     initials: 'FS',
     image: '/assets/Foundingdirector.jpeg',
     role: 'Founder & Managing Director',
@@ -15,11 +22,11 @@ const teamMembers = [
     bio: 'Provides long-term strategic direction, institutional perspective, and global relationship guidance for the Wayken platform.'
   },
   {
-    initials: 'IP',
-    image: '/assets/Ceo.jpeg',
-    role: 'Chief Investment Officer',
-    name: 'Investment Partner',
-    bio: 'Brings structured investment analysis and sector expertise across healthcare and technology. Oversees the due diligence and portfolio evaluation process.'
+    initials: 'IC',
+    image: '/assets/Indianchairman.jpeg',
+    role: 'Indian Chairman',
+    name: 'Indian Chairman',
+    bio: 'Guides India-focused relationships, local governance standards, and long-term collaboration across the Wayken network.'
   },
   {
     initials: 'SP',
@@ -27,13 +34,6 @@ const teamMembers = [
     role: 'Strategy & Operations',
     name: 'Operating Partner',
     bio: 'Specializes in post-investment value creation, working alongside portfolio companies to build operational capabilities and governance infrastructure.'
-  },
-  {
-    initials: 'IC',
-    image: '/assets/Indianchairman.jpeg',
-    role: 'Indian Chairman',
-    name: 'Indian Chairman',
-    bio: 'Guides India-focused relationships, local governance standards, and long-term collaboration across the Wayken network.'
   },
   {
     initials: 'D1',
