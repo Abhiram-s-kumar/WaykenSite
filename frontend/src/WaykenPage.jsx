@@ -1,17 +1,17 @@
-﻿function WaykenPage() {
+function WaykenPage() {
 const teamMembers = [
   {
-    initials: 'IP',
+    initials: 'CEO',
     image: '/assets/Ceo.jpeg',
-    role: 'Chief Investment Officer',
-    name: 'Investment Partner',
+    role: 'Chief Executive Officer',
+    name: 'Chief Executive Officer',
     bio: 'Brings structured investment analysis and sector expertise across healthcare and technology. Oversees the due diligence and portfolio evaluation process.'
   },
   {
-    initials: 'FS',
+    initials: 'PM',
     image: '/assets/Foundingdirector.jpeg',
-    role: 'Founder & Managing Director',
-    name: 'Founding Partner',
+    role: 'Patron & Chief Mentor',
+    name: 'Patron & Chief Mentor',
     bio: 'Executive MBA graduate with a deep background in business strategy and investment evaluation. Leads the overall direction and capital allocation decisions of Wayken.'
   },
   {
@@ -29,10 +29,10 @@ const teamMembers = [
     bio: 'Guides India-focused relationships, local governance standards, and long-term collaboration across the Wayken network.'
   },
   {
-    initials: 'SP',
+    initials: 'CFO',
     image: '/assets/Cfo.jpeg',
     role: 'Strategy & Operations',
-    name: 'Operating Partner',
+    name: 'Chief Financial Officer',
     bio: 'Specializes in post-investment value creation, working alongside portfolio companies to build operational capabilities and governance infrastructure.'
   },
   {
@@ -59,7 +59,10 @@ const teamMembers = [
 ];
 
   return (
-<div>
+    <>
+      <div className="custom-cursor-dot" id="cursorDot" aria-hidden="true" />
+      <div className="custom-cursor-ring" id="cursorRing" aria-hidden="true" />
+      <div>
   {/* NAV */}
   <nav id="mainNav">
     <a href="#home" className="nav-logo">
@@ -145,15 +148,11 @@ const teamMembers = [
             </div>
             <div className="pillar">
               <div className="pillar-num">02</div>
-              <div className="pillar-label">Discipline</div>
+              <div className="pillar-label">Unity</div>
             </div>
             <div className="pillar">
               <div className="pillar-num">03</div>
-              <div className="pillar-label">Ethical Responsibility</div>
-            </div>
-            <div className="pillar">
-              <div className="pillar-num">04</div>
-              <div className="pillar-label">Long-Term Vision</div>
+              <div className="pillar-label">Ethical</div>
             </div>
           </div>
         </div>
@@ -550,8 +549,7 @@ const teamMembers = [
     </div>
   </footer>
 </div>
-
-
+    </>
   );
 }
 
