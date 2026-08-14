@@ -150,6 +150,10 @@ function App() {
     const status = document.createElement('div');
     status.className = 'form-status';
 
+    const API_URL = import.meta.env.VITE_API_URL || (
+      import.meta.env.DEV ? '/api/enquiries' : 'https://waykensite.onrender.com/api/enquiries'
+    );
+
     const handleSubmit = async () => {
       if (!contactForm || !submitButton) return;
 
@@ -165,14 +169,16 @@ function App() {
       status.textContent = 'Submitting enquiry...';
 
       try {
-        const response = await fetch('https://waykensite.onrender.com/api/enquiries', {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
 
+        const data = await response.json().catch(() => null);
+
         if (!response.ok) {
-          throw new Error('Submission failed');
+          throw new Error(data?.message || 'Submission failed');
         }
 
         status.className = 'form-status success';
@@ -182,9 +188,11 @@ function App() {
         });
         const select = contactForm.querySelector('select');
         if (select) select.selectedIndex = 0;
-      } catch {
+      } catch (err) {
         status.className = 'form-status error';
-        status.textContent = 'Unable to submit right now. Please try again later.';
+        status.textContent = err?.message && err.message !== 'Failed to fetch'
+          ? err.message
+          : 'Unable to submit right now. Please try again later.';
       } finally {
         submitButton.disabled = false;
       }

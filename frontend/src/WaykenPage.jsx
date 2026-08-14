@@ -459,7 +459,7 @@ const teamMembers = [
             </div>
             <div className="contact-detail-item">
               <span className="contact-detail-label">Email</span>
-              <span className="contact-detail-value">contact@waykenholdng.com</span>
+              <a href="mailto:waykenholdings@gmail.com" className="contact-detail-value" style={{ textDecoration: 'none', color: 'inherit' }}>waykenholdings@gmail.com</a>
             </div>
             <div className="contact-detail-item">
               <span className="contact-detail-label">Enquiries</span>
