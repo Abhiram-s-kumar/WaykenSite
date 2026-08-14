@@ -64,27 +64,29 @@ const teamMembers = [
       <div className="custom-cursor-ring" id="cursorRing" aria-hidden="true" />
       <div>
   {/* NAV */}
-  <nav id="mainNav">
-    <a href="#home" className="nav-logo">
-      <img src="/assets/WaykenLohgo.png" alt="Wayken Holdings" className="nav-logo-img" />
-    </a>
-    <ul className="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#sectors">Sectors</a></li>
-      <li><a href="#responsible">Responsibility</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#partners">Partners</a></li>
-      <li><a href="#insights">Insights</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button className="hamburger" id="hamburger" aria-label="Menu">
-      <span /><span /><span />
-    </button>
-  </nav>
+  <header>
+    <nav id="mainNav" aria-label="Main Navigation">
+      <a href="#home" className="nav-logo" aria-label="Wayken Holdings Home">
+        <img src="/assets/WaykenLohgo.png" alt="Wayken Holdings - Long-Term Capital Management" className="nav-logo-img" />
+      </a>
+      <ul className="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#responsible">Responsibility</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button className="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span /><span /><span />
+      </button>
+    </nav>
+  </header>
   {/* MOBILE NAV */}
-  <div className="mobile-nav" id="mobileNav">
-    <button className="mobile-close" id="mobileClose">✕</button>
+  <nav className="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+    <button className="mobile-close" id="mobileClose" aria-label="Close Menu">✕</button>
     <a href="#about" className="mobile-link">About</a>
     <a href="#philosophy" className="mobile-link">Philosophy</a>
     <a href="#sectors" className="mobile-link">Sectors</a>
@@ -93,7 +95,8 @@ const teamMembers = [
     <a href="#partners" className="mobile-link">Partners</a>
     <a href="#insights" className="mobile-link">Insights</a>
     <a href="#contact" className="mobile-link">Contact</a>
-  </div>
+  </nav>
+  <main id="mainContent">
   {/* ═══ HOME ═══ */}
   <section id="home">
     <div className="hero-bg" />
@@ -128,7 +131,7 @@ const teamMembers = [
       <div className="about-grid">
         <div className="about-visual reveal">
           <div className="about-box">
-            <img src="/assets/Home.png" alt="Boardroom investment review" className="about-image" />
+            <img src="/assets/Home.png" alt="Wayken Holdings Boardroom Investment Review and Strategy Session in Kochi, India" className="about-image" />
             <div className="about-box-inner">
               <div className="about-founded">Est. — Kochi, India</div>
               <div className="about-tagline">"Capital deployed responsibly. Businesses built to endure."</div>
@@ -340,7 +343,7 @@ const teamMembers = [
                 <div className="team-initials">{member.initials}</div>
                 <img
                   src={member.image}
-                  alt={member.name}
+                  alt={`Wayken Holdings ${member.role} - ${member.name}`}
                   className="team-photo"
                   loading="lazy"
                   onError={(event) => {
@@ -423,19 +426,19 @@ const teamMembers = [
       <h2 className="section-title reveal reveal-delay-1">Thinking on <em>Markets &amp; Capital</em></h2>
       <p className="section-lead reveal reveal-delay-2">Our perspectives on long-term investing, governance, and the businesses we find most compelling.</p>
       <div className="insights-grid">
-        <a href="#" className="insight-card reveal">
+        <a href="#contact" className="insight-card reveal" aria-label="Wayken Holdings Insight: Why Patient Capital Outperforms in Emerging Markets">
           <div className="insight-type">Investment Thinking</div>
           <div className="insight-title">Why Patient Capital Outperforms in Emerging Markets</div>
           <div className="insight-excerpt">The compounding advantage of long-term orientation is more pronounced in markets with institutional inefficiency — and India presents precisely that opportunity.</div>
           <div className="insight-arrow">Read more</div>
         </a>
-        <a href="#" className="insight-card reveal reveal-delay-1">
+        <a href="#contact" className="insight-card reveal reveal-delay-1" aria-label="Wayken Holdings Governance: The Case for Independent Governance in Private Equity">
           <div className="insight-type">Governance</div>
           <div className="insight-title">The Case for Independent Governance in Private Equity</div>
           <div className="insight-excerpt">Most governance failures in private markets stem from the same root: the absence of independent oversight. We examine what proper structures look like.</div>
           <div className="insight-arrow">Read more</div>
         </a>
-        <a href="#" className="insight-card reveal reveal-delay-2">
+        <a href="#contact" className="insight-card reveal reveal-delay-2" aria-label="Wayken Holdings Sector View: Healthcare as a Structural Investment Opportunity in India">
           <div className="insight-type">Sector View</div>
           <div className="insight-title">Healthcare as a Structural Investment Opportunity in India</div>
           <div className="insight-excerpt">Demographic shifts, rising incomes, and persistent supply gaps make Indian healthcare one of the most compelling multi-decade investment themes available.</div>
@@ -507,12 +510,13 @@ const teamMembers = [
       </div>
     </div>
   </section>
+  </main>
   {/* FOOTER */}
-  <footer>
+  <footer role="contentinfo">
     <div className="footer-inner">
       <div className="footer-top">
         <div>
-          <img src="/assets/WaykenLohgo.png" alt="Wayken Holdings" className="footer-brand-logo" />
+          <img src="/assets/WaykenLohgo.png" alt="Wayken Holdings - Building Businesses for the Next 100 Years" className="footer-brand-logo" />
           <div className="footer-brand-desc">Long-term investment management. Responsible capital allocation. Building businesses for the next 100 years.</div>
         </div>
         <div>

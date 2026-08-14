@@ -1,0 +1,17 @@
+{
+  "name": "Wayken Holdings",
+  "short_name": "Wayken",
+  "description": "Wayken Holdings (Wayken Holding Pvt Ltd) - Long-Term Capital Management & Investment Firm",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/assets/WaykenLohgo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# robots.txt for Wayken Holdings
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wayken-site.vercel.app/sitemap.xml

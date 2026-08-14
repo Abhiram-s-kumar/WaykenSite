@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://wayken-site.vercel.app/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://wayken-site.vercel.app/assets/WaykenLohgo.png</image:loc>
+      <image:title>Wayken Holdings Logo</image:title>
+      <image:caption>Wayken Holdings - Long-Term Capital Management</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://wayken-site.vercel.app/assets/Home.png</image:loc>
+      <image:title>Wayken Holdings Strategic Investment Platform</image:title>
+      <image:caption>Building businesses for the next 100 years</image:caption>
+    </image:image>
+  </url>
+</urlset>
